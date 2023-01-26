@@ -1,0 +1,42 @@
+$size: 48px;
+
+:host {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 48px;
+}
+
+.strip-line {
+  height: 2px;
+  // width: calc(100% - 48px);
+  width: 100%;
+  background-color: #eee;
+  position: absolute;
+  top: 24px;
+  z-index: 0;
+
+  &_started {
+    background-color: #666;
+  }
+}
+
+.completed-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 0 4px;
+  padding-bottom: -0px;
+  overflow: hidden;
+  color: #fff;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  // right: 0px;
+  // bottom: 0px;
+  background-color: #333;
+}

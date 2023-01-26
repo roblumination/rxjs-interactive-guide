@@ -1,0 +1,84 @@
+$red: #e01a52;
+$yellow: #e48c07;
+$green: #24b208;
+$blue: #00639c;
+
+$size: 48px;
+
+@mixin color-dot($color: #f0f) {
+  background-color: $color;
+}
+
+:host {
+  position: absolute;
+  display: block;
+  height: 48px;
+  width: 100%;
+  animation: marble-movement linear 5s;
+  transform: translateX(calc(100% - $size));
+  opacity: 0;
+  top: 0px;
+}
+
+.dot {
+  top: 0px;
+  display: block;
+  width: $size;
+  height: $size;
+  border: 2px solid #333;
+  font-size: 24px;
+  border-radius: 50%;
+  font-weight: 600;
+
+  // background-color: #fff;
+
+  text-shadow: 0px 0px 2px #000;
+  // -webkit-text-stroke: 1px #333;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: marble-scale ease-out 0.1s;
+}
+
+.red {
+  @include color-dot($red);
+}
+
+.yellow {
+  @include color-dot($yellow);
+}
+
+.green {
+  @include color-dot($green);
+}
+
+.blue {
+  @include color-dot($blue);
+}
+
+@keyframes marble-movement {
+  0%,
+  2% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  95% {
+    transform: translateX(calc(100% - $size));
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes marble-scale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

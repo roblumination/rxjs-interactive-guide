@@ -1,0 +1,26 @@
+<div class="transport">
+  <button (click)="start()">Start</button>
+  <button (click)="stop()">Stop</button>
+</div>
+
+<div class="strip-list inputs">
+  <div class="strip-container" *ngFor="let input of inputs">
+    <app-marble-strip
+      [obs]="input"
+      [startObs]="start$"
+      [stopObs]="stop$"
+    ></app-marble-strip>
+  </div>
+</div>
+
+<div class="label">{{ text }}</div>
+
+<div class="strip-list outputs">
+  <div class="strip-container" *ngFor="let output of outputs">
+    <app-marble-strip
+      [obs]="output"
+      [startObs]="start$"
+      [stopObs]="stop$"
+    ></app-marble-strip>
+  </div>
+</div>
