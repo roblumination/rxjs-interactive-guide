@@ -5,10 +5,10 @@ import { AbstractOperatorPage } from 'src/app/models/operator-page.model';
 
 @Component({
   selector: 'app-interval',
-  templateUrl: './interval.component.html',
+  templateUrl: './from.component.html',
   styleUrls: ['../../operator-page.scss'],
 })
-export class IntervalComponent extends AbstractOperatorPage {
+export class FromComponent extends AbstractOperatorPage {
   override inputs: Observable<MarbleData>[] = [];
   override outputs: Observable<MarbleData>[] = [
     this.marbleCreateService.convertToColoredObservable(

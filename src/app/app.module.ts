@@ -10,21 +10,20 @@ import { InDevelopementComponent } from './pages/in-developement/in-developement
 import { AppRoutingModule } from './app-routing.module';
 import { FilterOperatorPipe } from './components/navigation/filter-operator.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OperatorPagesModule } from './pages/operator-pages.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     PageComponent,
-    IntervalComponent,
-    InDevelopementComponent,
     FilterOperatorPipe,
   ],
   imports: [
     BrowserModule,
-    MarblesModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    OperatorPagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { MarbleColor, MarbleData } from '@core/models/common.types';
-import { colorPalette } from '@core/models/constants/colors';
 import { map, Observable } from 'rxjs';
+import { MarbleColor, MarbleData } from '../models/common.types';
+import { colorPalette, MarbleColorNamesList } from '../models/constants/colors';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +23,11 @@ export class MarbleConstructionService {
   }
 
   private getRandomColor(): MarbleColor {
-    const avaliableColors = Object.values(colorPalette);
-    const range = avaliableColors.length - 1;
-    const index = ~~(Math.random() * range);
+    const avaliableColors: MarbleColor[] = Object.values(
+      MarbleColorNamesList
+    ) as MarbleColor[];
+    const range: number = avaliableColors.length - 1;
+    const index: number = ~~(Math.random() * range);
     return avaliableColors[index];
   }
 }

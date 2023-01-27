@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransportComponent } from './transport.component';
+import { MarbleLogItemComponent } from './marble-log-item.component';
 
-describe('TransportComponent', () => {
-  let component: TransportComponent;
-  let fixture: ComponentFixture<TransportComponent>;
+describe('MarbleLogItemComponent', () => {
+  let component: MarbleLogItemComponent;
+  let fixture: ComponentFixture<MarbleLogItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransportComponent ]
+      declarations: [ MarbleLogItemComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TransportComponent);
+    fixture = TestBed.createComponent(MarbleLogItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

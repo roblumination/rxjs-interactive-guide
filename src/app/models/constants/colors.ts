@@ -14,10 +14,10 @@ export const MarbleColorNamesList = [
 export const colorPalette: Record<MarbleColor, string> = {
   red: '#f00',
   orange: '#f80',
-  yellow: '#ff0',
-  green: '#0f0',
-  cyan: '#0ff',
+  yellow: '#aa0',
+  green: '#0a0',
+  cyan: '#0aa',
   blue: '#00f',
   violet: '#60f',
-  purple: '#f0f',
+  purple: '#a0a',
 };

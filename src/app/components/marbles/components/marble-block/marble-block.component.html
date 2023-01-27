@@ -1,6 +1,6 @@
-<div class="transport">
-  <button (click)="start()">Start</button>
-  <button (click)="stop()">Stop</button>
+<div class="transport" *ngIf="transport">
+  <button (click)="start()">Subscibe</button>
+  <button (click)="stop()">Unsubscribe</button>
 </div>
 
 <div class="strip-list inputs">
