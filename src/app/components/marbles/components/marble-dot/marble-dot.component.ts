@@ -1,11 +1,4 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MarbleColor } from 'src/app/models/common.types';
 import { colorPalette } from 'src/app/models/constants/colors';
 

@@ -1,1 +1,16 @@
-<p>navigation works!</p>
+<input type="text" [formControl]="filterInput" placeholder="filter" />
+<div class="list-wrapper">
+  <section *ngFor="let group of operatorGroupNames">
+    <h3>{{ group }}</h3>
+    <ng-container
+      *ngFor="
+        let operatorName of operatorList[group]
+          | filterOperator : (filterInput.valueChanges | async) ?? ''
+      "
+    >
+      <a [routerLink]="[operatorName]" [routerLinkActive]="'active-route'">{{
+        operatorName
+      }}</a>
+    </ng-container>
+  </section>
+</div>

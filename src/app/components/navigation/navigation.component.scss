@@ -1,0 +1,73 @@
+@use "variables" as *;
+@use "colors" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  // border-right: $border1;
+  width: 200px;
+  margin: 8px 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  // overflow-y: auto;
+  background-color: #0001;
+  border: 1px solid $grayscale-300;
+}
+
+input {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  min-height: 30px;
+  border: none;
+  padding: 4px 8px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.list-wrapper {
+  overflow-y: auto;
+  padding: 6px 4px;
+  // height: 50%;
+}
+
+section {
+  // border: 1px solid #f00;
+  background-color: #0001;
+  border: 1px solid #0002;
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 4px;
+
+  h3 {
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $grayscale-600;
+
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+
+  a {
+    display: block;
+    color: $grayscale-700;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: all 0.1s;
+
+    &:hover {
+      background-color: #0001;
+    }
+
+    &.active-route {
+      background-color: $grayscale-600;
+      color: $grayscale-200;
+    }
+  }
+}
