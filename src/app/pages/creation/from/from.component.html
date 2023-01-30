@@ -1,10 +1,14 @@
-<h1>Interval</h1>
+<h1>From</h1>
 
-<p>Interval - rxjs operator</p>
+<p>
+  Converts various other objects and data types into Observables. It also
+  converts a Promise, an array-like, or an iterable object into an Observable
+  that emits the items in that promise, array, or iterable. A String, in this
+  context, is treated as an array of characters. Observable-like objects
+  (contains a function named with the ES2015 Symbol for Observable) can also be
+  converted through this operator.
+</p>
 
-<app-marble-block
-  [inputs]="inputs"
-  [outputs]="outputs"
-  [text]="operatorSample"
-  [transport]="true"
-></app-marble-block>
+<app-marble-block [inputs]="inputs" [outputs]="outputs" [transport]="true">
+  from([A, B, C, D, E, F])
+</app-marble-block>

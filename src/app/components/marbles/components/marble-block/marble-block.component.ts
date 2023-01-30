@@ -17,7 +17,6 @@ import { Observable } from 'rxjs';
 })
 export class MarbleBlockComponent implements OnInit, OnChanges {
   @Input() inputs: Observable<any>[] = [];
-  @Input() text: string = '';
   @Input() outputs: Observable<any>[] = [];
   @Input() transport: boolean = false;
 

@@ -1,10 +1,15 @@
 <h1>Interval</h1>
 
-<p>Interval - rxjs operator</p>
+<p>
+  Returns an Observable that emits an infinite sequence of ascending integers,
+  with a constant interval of time of your choosing between those emissions. The
+  first emission is not sent immediately, but only after the first period has
+  passed
+</p>
 
-<app-marble-block
-  [inputs]="inputs"
-  [outputs]="outputs"
-  [text]="operatorSample"
-  [transport]="true"
-></app-marble-block>
+<app-marble-block [inputs]="inputs" [outputs]="outputs" [transport]="true">
+  interval(
+  <input class="operator-value-input" #operatorValueInput value="1000" />
+  <button (click)="replaceInterval(+operatorValueInput.value)">SET</button>
+  )
+</app-marble-block>

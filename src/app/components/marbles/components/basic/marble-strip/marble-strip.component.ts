@@ -34,7 +34,6 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   private observer = {
     next: (data: MarbleData) => {
       this.createItems(data.value, data.color);
-      console.log(data);
     },
     complete: () => {
       this.completed = true;

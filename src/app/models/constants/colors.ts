@@ -1,6 +1,6 @@
 import { MarbleColor } from '../common.types';
 
-export const MarbleColorNamesList = [
+export const marbleColorNamesList = [
   'red',
   'orange',
   'yellow',

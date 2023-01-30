@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { interval, Observable, take } from 'rxjs';
-import { MarbleData } from 'src/app/models/common.types';
+import { MarbleData, MarbleSource } from 'src/app/models/common.types';
 import { AbstractOperatorPage } from 'src/app/models/operator-page.model';
 
 @Component({
@@ -9,12 +9,18 @@ import { AbstractOperatorPage } from 'src/app/models/operator-page.model';
   styleUrls: ['../../operator-page.scss'],
 })
 export class IntervalComponent extends AbstractOperatorPage {
-  override inputs: Observable<MarbleData>[] = [];
-  override outputs: Observable<MarbleData>[] = [
+  override inputs: MarbleSource[] = [];
+  override outputs: MarbleSource[] = [
     this.marbleCreateService.convertToColoredObservable(
       interval(1000).pipe(take(100)),
       'random'
     ),
   ];
-  override operatorSample: string = 'interval(1000)';
+
+  replaceInterval(intervalInMs: number): void {
+    this.outputs[0] = this.marbleCreateService.convertToColoredObservable(
+      interval(intervalInMs).pipe(take(100)),
+      'random'
+    );
+  }
 }

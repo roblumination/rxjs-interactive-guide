@@ -13,7 +13,9 @@
   </div>
 </div>
 
-<div class="label">{{ text }}</div>
+<div class="label">
+  <ng-content></ng-content>
+</div>
 
 <div class="strip-list outputs">
   <div class="strip-container" *ngFor="let output of outputs">
