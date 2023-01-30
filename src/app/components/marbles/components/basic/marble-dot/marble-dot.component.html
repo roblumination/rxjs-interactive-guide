@@ -1,4 +1,5 @@
-<div class="dot" [style.borderColor]="color">
+<div class="line" *ngIf="completeIndicator"></div>
+<div class="dot" [style.borderColor]="color" *ngIf="!completeIndicator">
   <div class="dot__content">
     {{ data.toUpperCase() }}
   </div>

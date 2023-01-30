@@ -4,6 +4,7 @@ import { MarbleBlockComponent } from './components/marble-block/marble-block.com
 import { MarbleStripComponent } from './components/basic/marble-strip/marble-strip.component';
 import { MarbleDotComponent } from './components/basic/marble-dot/marble-dot.component';
 import { MarbleLogItemComponent } from './components/basic/marble-log-item/marble-log-item.component';
+import { MarbleDotCompleteComponent } from './components/basic/marble-dot-complete/marble-dot-complete.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { MarbleLogItemComponent } from './components/basic/marble-log-item/marbl
     MarbleDotComponent,
     MarbleStripComponent,
     MarbleLogItemComponent,
+    MarbleDotCompleteComponent,
   ],
   imports: [CommonModule],
   exports: [MarbleBlockComponent],

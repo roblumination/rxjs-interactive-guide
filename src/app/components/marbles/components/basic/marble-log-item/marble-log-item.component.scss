@@ -3,11 +3,11 @@
 :host {
   display: block;
   height: 14px;
-  width: 24px;
+  min-width: 24px;
   border-radius: 3px;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 2px 3px #0002;
+  // box-shadow: 0 2px 3px #0002;
   border: 1px solid $grayscale-600;
 
   animation: log-scale 0.1s;

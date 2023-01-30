@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MarbleConstructionService } from '../services/marble-construction.service';
 import { RandomTickService } from '../services/randomTick.service';
@@ -12,7 +12,7 @@ export interface OperatorPage {
 @Component({
   template: '',
 })
-export class AbstractOperatorPage implements OperatorPage {
+export class AbstractOperatorPage implements OperatorPage, OnInit {
   inputs: MarbleSource[] = [];
   outputs: MarbleSource[] = [];
 
@@ -20,4 +20,6 @@ export class AbstractOperatorPage implements OperatorPage {
     protected marbleCreateService: MarbleConstructionService,
     protected randomTickService: RandomTickService
   ) {}
+
+  ngOnInit(): void {}
 }

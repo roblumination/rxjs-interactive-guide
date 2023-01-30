@@ -12,7 +12,7 @@ export class IntervalComponent extends AbstractOperatorPage {
   override inputs: MarbleSource[] = [];
   override outputs: MarbleSource[] = [
     this.marbleCreateService.convertToColoredObservable(
-      interval(1000).pipe(take(100)),
+      interval(1000).pipe(take(3)),
       'random'
     ),
   ];

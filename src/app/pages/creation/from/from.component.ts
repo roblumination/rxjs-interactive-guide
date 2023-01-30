@@ -12,7 +12,7 @@ export class FromComponent extends AbstractOperatorPage {
   override inputs: Observable<MarbleData>[] = [];
   override outputs: Observable<MarbleData>[] = [
     this.marbleCreateService.convertToColoredObservable(
-      from(['A', 'B', 'C', 'D', 'E', 'F']).pipe(delayWhen(() => interval(500))),
+      from(['A', 'B', 'C', 'D', 'E', 'F']),
       'random'
     ),
   ];

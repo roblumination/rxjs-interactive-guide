@@ -28,9 +28,11 @@ export class MarbleBlockComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    [this.start$, this.stop$] = changes['transport'].currentValue
-      ? [new Subject<void>(), new Subject<void>()]
-      : [null, null];
+    if (changes['transport']) {
+      [this.start$, this.stop$] = changes['transport'].currentValue
+        ? [new Subject<void>(), new Subject<void>()]
+        : [null, null];
+    }
   }
 
   public start(): void {

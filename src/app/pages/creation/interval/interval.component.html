@@ -8,8 +8,7 @@
 </p>
 
 <app-marble-block [inputs]="inputs" [outputs]="outputs" [transport]="true">
-  interval(
-  <input class="operator-value-input" #operatorValueInput value="1000" />
-  <button (click)="replaceInterval(+operatorValueInput.value)">SET</button>
-  )
+  interval(1000)
+  <!-- <input class="operator-value-input" #operatorValueInput value="1000" />
+  <button (click)="replaceInterval(+operatorValueInput.value)">SET</button> -->
 </app-marble-block>

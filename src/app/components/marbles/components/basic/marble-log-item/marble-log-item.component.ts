@@ -14,7 +14,7 @@ import { colorPalette } from 'src/app/models/constants/colors';
 })
 export class MarbleLogItemComponent {
   public data: string = 'N/A';
-  public color: string = colorPalette['red'];
+  public color: string = '#000';
 
   constructor(private chDetRef: ChangeDetectorRef) {}
 

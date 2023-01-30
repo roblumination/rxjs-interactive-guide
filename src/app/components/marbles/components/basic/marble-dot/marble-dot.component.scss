@@ -1,6 +1,7 @@
 @use "colors" as *;
 
 $size: 48px;
+$line-offset: 6px;
 
 :host {
   position: absolute;
@@ -10,7 +11,9 @@ $size: 48px;
   animation: marble-movement linear 5s;
   transform: translateX(calc(100% - $size));
   opacity: 0;
-  top: 1px;
+  top: calc((0px - $size) / 2);
+  z-index: 1000;
+  // border: 1px solid #00f;
 }
 
 .dot {
@@ -21,6 +24,7 @@ $size: 48px;
   border: 5px solid #333;
   outline: 1px solid #000;
   border-radius: 50%;
+  // box-shadow: 0 0px 2px 8px #f00;
 
   animation: marble-scale ease-out 0.1s;
 
@@ -42,6 +46,15 @@ $size: 48px;
     background-color: #fff;
     color: $grayscale-900;
   }
+}
+
+.line {
+  position: relative;
+  top: -$line-offset;
+  left: calc($size / 2 - 2px);
+  height: calc($size + ($line-offset * 2));
+  width: 2px;
+  background-color: $grayscale-800;
 }
 
 @keyframes marble-movement {

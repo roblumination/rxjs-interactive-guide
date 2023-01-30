@@ -1,0 +1,17 @@
+<h1>fromEvent</h1>
+
+<p>
+  Accepts as a first argument event target, which is an object with methods for
+  registering event handler functions. As a second argument it takes string that
+  indicates type of event we want to listen for. fromEvent supports selected
+  types of event targets, which are described in detail below. If your event
+  target does not match any of the ones listed, you should use fromEventPattern,
+  which can be used on arbitrary APIs. When it comes to APIs supported by
+  fromEvent, their methods for adding and removing event handler functions have
+  different names, but they all accept a string describing event type and
+  function itself, which will be called whenever said event happens.
+</p>
+
+<app-marble-block [inputs]="inputs" [outputs]="outputs">
+  <button id="from-event-button">button</button>fromEvent(button, 'click')
+</app-marble-block>

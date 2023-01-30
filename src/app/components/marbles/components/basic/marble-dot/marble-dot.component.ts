@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  HostBinding,
   Input,
 } from '@angular/core';
 import { MarbleColor } from 'src/app/models/common.types';
@@ -16,6 +17,8 @@ import { colorPalette } from 'src/app/models/constants/colors';
 export class MarbleDotComponent {
   public data: string = 'N/A';
   public color: string = colorPalette['red'];
+  public completeIndicator: boolean = false;
+  @HostBinding('style.zIndex') private index: number = 1000;
 
   constructor(private chDetRef: ChangeDetectorRef) {}
 
@@ -27,5 +30,11 @@ export class MarbleDotComponent {
   public setData(text: string): void {
     this.data = text;
     this.chDetRef.detectChanges();
+  }
+
+  public setCompleteMode(): void {
+    this.completeIndicator = true;
+    this.chDetRef.detectChanges();
+    this.index = 500;
   }
 }

@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostBinding,
   Input,
@@ -16,6 +18,7 @@ import { MarbleLogItemComponent } from '../marble-log-item/marble-log-item.compo
   selector: 'app-marble-strip',
   templateUrl: './marble-strip.component.html',
   styleUrls: ['./marble-strip.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MarbleStripComponent implements OnInit, OnDestroy {
   @Input() obs!: Observable<MarbleData>;
@@ -26,22 +29,32 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   dotsContainer!: ViewContainerRef;
   @ViewChild('logItemsContainer', { read: ViewContainerRef })
   logItemsContainer!: ViewContainerRef;
+
   public completed: boolean = false;
   public started: boolean = false;
+  @HostBinding('class.activated') activated: boolean = false;
 
   private subscription!: Subscription;
   private destroyed$ = new Subject<void>();
   private observer = {
     next: (data: MarbleData) => {
       this.createItems(data.value, data.color);
+      console.log(this.completed, this.started, this.activated);
     },
     complete: () => {
-      this.completed = true;
-      this.started = false;
+      this.complete();
+      this.stop();
+      console.log(this.completed, this.started, this.activated);
+      // console.log('COMPLETED!');
+      // this.completed = true;
+      // this.started = false;
+      // this.createCompleteItem();
+      // setTimeout(() => this.chDetRef.detectChanges(), 200);
+      // this.chDetRef.detectChanges();
     },
   };
 
-  constructor() {}
+  constructor(private chDetRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.watchForTranport();
@@ -59,14 +72,27 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   private start(): void {
     this.started = true;
     this.completed = false;
+    this.activated = true;
     this.subscription = this.obs
       .pipe(takeUntil(this.destroyed$))
       .subscribe(this.observer);
+    // this.chDetRef.detectChanges();
   }
 
   private stop(): void {
     this.started = false;
+    this.activated = false;
     this.subscription.unsubscribe();
+    // this.chDetRef.detectChanges();
+  }
+
+  private complete(): void {
+    this.activated = false;
+    this.started = false;
+    this.completed = true;
+    this.createCompleteItems();
+    // this.chDetRef.detectChanges();
+    this.chDetRef.markForCheck();
   }
 
   private createItems(value: string, color: MarbleColor) {
@@ -78,6 +104,18 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
     newDot.instance.setColor(color);
     newLogItem.instance.data = value;
     newLogItem.instance.setColor(color);
+    setTimeout(() => {
+      newDot.destroy();
+    }, 10000);
+  }
+
+  private createCompleteItems(): void {
+    const newDot = this.dotsContainer.createComponent(MarbleDotComponent);
+    const newLogItem = this.logItemsContainer.createComponent(
+      MarbleLogItemComponent
+    );
+    newLogItem.instance.data = 'END';
+    newDot.instance.setCompleteMode();
     setTimeout(() => {
       newDot.destroy();
     }, 10000);
