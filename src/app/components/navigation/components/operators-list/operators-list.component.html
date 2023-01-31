@@ -1,0 +1,25 @@
+<ng-container *ngFor="let group of operatorGroupNames">
+  <section
+    *ngIf="
+      (operatorList[group] | filterOperator : (searchQuery$ | async) ?? '')
+        .length
+    "
+  >
+    <h3>{{ group }}</h3>
+    <div class="content">
+      <ng-container
+        *ngFor="
+          let operatorName of operatorList[group]
+            | filterOperator : (searchQuery$ | async) ?? ''
+        "
+      >
+        <a
+          [routerLink]="[operatorName]"
+          (click)="close()"
+          [routerLinkActive]="'active-route'"
+          >{{ operatorName }}</a
+        >
+      </ng-container>
+    </div>
+  </section>
+</ng-container>

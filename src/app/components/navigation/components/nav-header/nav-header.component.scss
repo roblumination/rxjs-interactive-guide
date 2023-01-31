@@ -1,0 +1,45 @@
+@use "colors" as *;
+
+:host {
+  background-color: $accent;
+  background-color: #0004;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 0 50px;
+}
+
+input {
+  font-size: 18px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid $grayscale-700;
+  // width: 100%;
+  // max-width: 300px;
+  width: 100%;
+  max-width: 400px;
+  // width: clamp(100px, 100%, 300px);
+  // background-color: #fff3;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  cursor: pointer;
+  all: unset;
+  color: #fff;
+  position: absolute;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  font-weight: 600;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #fff3;
+  top: 10px;
+}

@@ -1,0 +1,15 @@
+@use "colors" as *;
+
+:host {
+  background-color: $accent;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.logo {
+  font-size: 24px;
+  padding: 5px 12px;
+  color: #fff;
+}
