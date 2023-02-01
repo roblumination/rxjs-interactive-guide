@@ -1,3 +1,14 @@
-<div class="log-item" [style.backgroundColor]="color">
-  {{ data }}
-</div>
+<ng-container [ngSwitch]="type">
+  <div
+    *ngSwitchCase="'normal'"
+    class="log-item"
+    [style.backgroundColor]="color"
+  >
+    {{ data }}
+  </div>
+
+  <div *ngSwitchCase="'complete'" class="log-item log-item-complete">
+    COMPLETE
+  </div>
+  <div *ngSwitchCase="'error'" class="log-item log-item-error">ERROR</div>
+</ng-container>

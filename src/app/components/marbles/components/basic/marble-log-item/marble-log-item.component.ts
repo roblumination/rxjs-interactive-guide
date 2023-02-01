@@ -3,8 +3,11 @@ import {
   ChangeDetectorRef,
   Component,
 } from '@angular/core';
-import { MarbleColor } from 'src/app/models/common.types';
-import { colorPalette } from 'src/app/models/constants/colors';
+import { MarbleColor, MarbleType } from 'src/app/models/common.types';
+import {
+  colorPalette,
+  marbleColorNamesList,
+} from 'src/app/models/constants/colors';
 
 @Component({
   selector: 'app-marble-log-item',
@@ -15,16 +18,18 @@ import { colorPalette } from 'src/app/models/constants/colors';
 export class MarbleLogItemComponent {
   public data: string = 'N/A';
   public color: string = '#000';
+  public type: MarbleType = 'normal';
 
   constructor(private chDetRef: ChangeDetectorRef) {}
 
-  public setColor(colorName: MarbleColor): void {
+  public fill(colorName: MarbleColor, value: string): void {
     this.color = colorPalette[colorName];
+    this.data = value;
     this.chDetRef.detectChanges();
   }
 
-  public setData(text: string): void {
-    this.data = text;
+  public setType(type: MarbleType): void {
+    this.type = type;
     this.chDetRef.detectChanges();
   }
 }

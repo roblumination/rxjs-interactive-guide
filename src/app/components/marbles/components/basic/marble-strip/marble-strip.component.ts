@@ -9,8 +9,19 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Observable, startWith, Subject, Subscription, takeUntil } from 'rxjs';
-import { MarbleColor, MarbleData } from 'src/app/models/common.types';
+import {
+  Observable,
+  Observer,
+  startWith,
+  Subject,
+  Subscription,
+  takeUntil,
+} from 'rxjs';
+import {
+  MarbleColor,
+  MarbleData,
+  MarbleType,
+} from 'src/app/models/common.types';
 import { MarbleDotComponent } from '../marble-dot/marble-dot.component';
 import { MarbleLogItemComponent } from '../marble-log-item/marble-log-item.component';
 
@@ -34,23 +45,24 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   public started: boolean = false;
   @HostBinding('class.activated') activated: boolean = false;
 
+  private readonly DOT_LIFE_TIME = 10_000;
   private subscription!: Subscription;
   private destroyed$ = new Subject<void>();
-  private observer = {
+  private observer: Observer<MarbleData> = {
     next: (data: MarbleData) => {
-      this.createItems(data.value, data.color);
-      console.log(this.completed, this.started, this.activated);
+      this.createMarble(data.value, data.color);
+    },
+    error: () => {
+      this.started = false;
+      this.activated = false;
+      this.createUtilMarble('error');
     },
     complete: () => {
-      this.complete();
-      this.stop();
-      console.log(this.completed, this.started, this.activated);
-      // console.log('COMPLETED!');
-      // this.completed = true;
-      // this.started = false;
-      // this.createCompleteItem();
-      // setTimeout(() => this.chDetRef.detectChanges(), 200);
-      // this.chDetRef.detectChanges();
+      this.activated = false;
+      this.started = false;
+      this.completed = true;
+      this.chDetRef.markForCheck();
+      this.createUtilMarble('complete');
     },
   };
 
@@ -82,43 +94,44 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   private stop(): void {
     this.started = false;
     this.activated = false;
+    this.completed = false;
     this.subscription.unsubscribe();
-    // this.chDetRef.detectChanges();
   }
 
-  private complete(): void {
-    this.activated = false;
-    this.started = false;
-    this.completed = true;
-    this.createCompleteItems();
-    // this.chDetRef.detectChanges();
-    this.chDetRef.markForCheck();
+  private createMarble(value: string, color: MarbleColor) {
+    this.createDot('normal', value, color);
+    this.createLogItem('normal', value, color);
   }
 
-  private createItems(value: string, color: MarbleColor) {
-    const newDot = this.dotsContainer.createComponent(MarbleDotComponent);
-    const newLogItem = this.logItemsContainer.createComponent(
+  private createUtilMarble(type: MarbleType): void {
+    this.createDot(type);
+    this.createLogItem(type);
+  }
+
+  private createDot(
+    type: MarbleType,
+    value: string = '',
+    color: MarbleColor = 'red'
+  ): void {
+    const dot = this.dotsContainer.createComponent(MarbleDotComponent);
+    dot.instance.setType(type);
+    dot.instance.fill(color, value);
+
+    setTimeout(() => {
+      dot.destroy();
+    }, this.DOT_LIFE_TIME);
+  }
+
+  private createLogItem(
+    type: MarbleType,
+    value: string = '',
+    color: MarbleColor = 'red'
+  ): void {
+    const logItem = this.logItemsContainer.createComponent(
       MarbleLogItemComponent
     );
-    newDot.instance.data = value;
-    newDot.instance.setColor(color);
-    newLogItem.instance.data = value;
-    newLogItem.instance.setColor(color);
-    setTimeout(() => {
-      newDot.destroy();
-    }, 10000);
-  }
-
-  private createCompleteItems(): void {
-    const newDot = this.dotsContainer.createComponent(MarbleDotComponent);
-    const newLogItem = this.logItemsContainer.createComponent(
-      MarbleLogItemComponent
-    );
-    newLogItem.instance.data = 'END';
-    newDot.instance.setCompleteMode();
-    setTimeout(() => {
-      newDot.destroy();
-    }, 10000);
+    logItem.instance.setType(type);
+    logItem.instance.fill(color, value);
   }
 
   private watchForTranport(): void {

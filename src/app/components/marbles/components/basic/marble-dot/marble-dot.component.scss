@@ -1,7 +1,9 @@
 @use "colors" as *;
+@use "mixins" as *;
 
 $size: 48px;
 $line-offset: 6px;
+$cross-offset: 31.4% + 1%;
 
 :host {
   position: absolute;
@@ -46,15 +48,34 @@ $line-offset: 6px;
     background-color: #fff;
     color: $grayscale-900;
   }
-}
 
-.line {
-  position: relative;
-  top: -$line-offset;
-  left: calc($size / 2 - 2px);
-  height: calc($size + ($line-offset * 2));
-  width: 2px;
-  background-color: $grayscale-800;
+  &-error {
+    position: relative;
+    // background-color: #aaa;
+    width: calc($size - 2px);
+    height: calc($size - 2px);
+
+    &::before {
+      @include pseudo-full();
+      transform: translate($cross-offset, -$cross-offset) rotate(45deg);
+      border-bottom: 3px solid #333;
+    }
+
+    &::after {
+      @include pseudo-full();
+      transform: translate(-$cross-offset, -$cross-offset) rotate(-45deg);
+      border-bottom: 3px solid #333;
+    }
+  }
+
+  &-complete {
+    position: relative;
+    top: -$line-offset;
+    left: calc($size / 2 - 2px);
+    height: calc($size + ($line-offset * 2));
+    width: 2px;
+    background-color: $grayscale-800;
+  }
 }
 
 @keyframes marble-movement {

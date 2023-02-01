@@ -9,6 +9,7 @@ import { OfComponent } from './of/of.component';
 import { RangeComponent } from './range/range.component';
 import { TimerComponent } from './timer/timer.component';
 import { IifComponent } from './iif/iif.component';
+import { ThrowErrorComponent } from './throw-error/throw-error.component';
 
 const operators = [
   IntervalComponent,
@@ -18,6 +19,7 @@ const operators = [
   RangeComponent,
   TimerComponent,
   IifComponent,
+  ThrowErrorComponent,
 ];
 
 @NgModule({

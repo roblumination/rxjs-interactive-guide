@@ -1,6 +1,11 @@
-<div class="line" *ngIf="completeIndicator"></div>
-<div class="dot" [style.borderColor]="color" *ngIf="!completeIndicator">
-  <div class="dot__content">
-    {{ data.toUpperCase() }}
+<ng-container [ngSwitch]="type">
+  <div *ngSwitchCase="'normal'" class="dot" [style.borderColor]="color">
+    <div class="dot__content">
+      {{ data.toUpperCase() }}
+    </div>
   </div>
-</div>
+
+  <div *ngSwitchCase="'complete'" class="dot-complete"></div>
+
+  <div *ngSwitchCase="'error'" class="dot-error"></div>
+</ng-container>

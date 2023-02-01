@@ -5,7 +5,7 @@ import {
   HostBinding,
   Input,
 } from '@angular/core';
-import { MarbleColor } from 'src/app/models/common.types';
+import { MarbleColor, MarbleType } from 'src/app/models/common.types';
 import { colorPalette } from 'src/app/models/constants/colors';
 
 @Component({
@@ -18,23 +18,20 @@ export class MarbleDotComponent {
   public data: string = 'N/A';
   public color: string = colorPalette['red'];
   public completeIndicator: boolean = false;
+  public type: MarbleType = 'normal';
   @HostBinding('style.zIndex') private index: number = 1000;
 
   constructor(private chDetRef: ChangeDetectorRef) {}
 
-  public setColor(colorName: MarbleColor): void {
+  fill(colorName: MarbleColor, value: string): void {
     this.color = colorPalette[colorName];
+    this.data = value;
     this.chDetRef.detectChanges();
   }
 
-  public setData(text: string): void {
-    this.data = text;
+  public setType(type: MarbleType): void {
+    this.type = type;
+    this.index = type == 'complete' ? 500 : 1000;
     this.chDetRef.detectChanges();
-  }
-
-  public setCompleteMode(): void {
-    this.completeIndicator = true;
-    this.chDetRef.detectChanges();
-    this.index = 500;
   }
 }
