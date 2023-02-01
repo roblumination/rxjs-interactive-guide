@@ -7,8 +7,10 @@
   passed
 </p>
 
-<app-marble-block [inputs]="inputs" [outputs]="outputs" [transport]="true">
-  interval(1000)
-  <!-- <input class="operator-value-input" #operatorValueInput value="1000" />
-  <button (click)="replaceInterval(+operatorValueInput.value)">SET</button> -->
+<app-marble-block
+  [inputs]="sources[0].inputs"
+  [outputs]="sources[0].outputs"
+  [transport]="true"
+>
+  <div class="operator-label"><span class="accent">interval</span>(1000)</div>
 </app-marble-block>

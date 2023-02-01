@@ -1,0 +1,16 @@
+<h1>Iif</h1>
+
+<p>
+  const myBoolean = {{ myBoolean }} <br />
+  <button (click)="toggle()">toggle</button>
+</p>
+
+<app-marble-block
+  [inputs]="sources[0].inputs"
+  [outputs]="sources[0].outputs"
+  [transport]="true"
+>
+  <div class="operator-label">
+    <span class="accent">iif</span>(() => myBoolean, of(A), of(B) )
+  </div>
+</app-marble-block>

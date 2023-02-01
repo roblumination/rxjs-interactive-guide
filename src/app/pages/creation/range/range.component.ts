@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { from } from 'rxjs';
-import { MarbleSource } from 'src/app/models/common.types';
+import { range } from 'rxjs';
 import {
   AbstractOperatorPage,
   OperatorSource,
@@ -8,16 +7,16 @@ import {
 
 @Component({
   selector: 'app-interval',
-  templateUrl: './from.component.html',
+  templateUrl: './range.component.html',
   styleUrls: ['../../operator-page.scss'],
 })
-export class FromComponent extends AbstractOperatorPage {
+export class RangeComponent extends AbstractOperatorPage {
   override sources: OperatorSource[] = [
     {
       inputs: [],
       outputs: [
         this.marbleCreateService.convertToColoredObservable(
-          from(['A', 'B', 'C', 'D', 'E', 'F']),
+          range(1, 8),
           'random'
         ),
       ],

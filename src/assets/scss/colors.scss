@@ -1,5 +1,8 @@
 $accent: #d81b60;
 $pair: #1bd893;
+$blue: #0095f8;
+$orange: #b97a16;
+$green: #26970f;
 
 $grayscale-50: #f7f7f7;
 $grayscale-100: #efefef;
@@ -11,3 +14,19 @@ $grayscale-600: #6d6d6d;
 $grayscale-700: #5f5f5f;
 $grayscale-800: #4a4a4a;
 $grayscale-900: #3d3d3d;
+
+.blue {
+  color: $blue;
+}
+
+.orange {
+  color: $orange;
+}
+
+.accent {
+  color: $accent;
+}
+
+.green {
+  color: $green;
+}

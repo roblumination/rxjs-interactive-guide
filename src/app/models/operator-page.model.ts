@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MarbleConstructionService } from '../services/marble-construction.service';
 import { RandomTickService } from '../services/randomTick.service';
 import { MarbleSource } from './common.types';
 
-export interface OperatorPage {
+export type OperatorSource = {
   inputs: MarbleSource[];
   outputs: MarbleSource[];
+};
+
+export interface OperatorPage {
+  sources: OperatorSource[];
 }
 
 @Component({
   template: '',
 })
-export class AbstractOperatorPage implements OperatorPage, OnInit {
-  inputs: MarbleSource[] = [];
-  outputs: MarbleSource[] = [];
+export class AbstractOperatorPage implements OperatorPage, OnInit, OnDestroy {
+  sources: OperatorSource[] = [];
 
   constructor(
     protected marbleCreateService: MarbleConstructionService,
@@ -22,4 +25,6 @@ export class AbstractOperatorPage implements OperatorPage, OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {}
 }

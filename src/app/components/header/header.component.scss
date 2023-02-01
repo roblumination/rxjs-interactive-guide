@@ -1,15 +1,109 @@
 @use "colors" as *;
 
 :host {
-  background-color: $accent;
+  // background-color: $accent;
   display: flex;
+  position: relative;
   // justify-content: space-between;
   align-items: center;
   height: 50px;
+  border-bottom: 1px solid $grayscale-400;
+  // background-color: #00f;
+
+  // &::after {
+  //   isolation: isolate;
+  //   content: "";
+  //   position: absolute;
+  //   top: 0px;
+  //   bottom: 0px;
+  //   left: -100vw;
+  //   right: -400vw;
+  //   // background-color: #00f;
+  //   background: linear-gradient(90deg, rgb(0, 0, 0), transparent),
+  //     url("/assets/textures/noise.svg");
+  //   filter: contrast(1.7) brightness(10);
+  //   // background-size: 200vw 200vh;
+  //   z-index: -1;
+  //   // mix-blend-mode: overlay;
+  //   // opacity: 0.2;
+  // }
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0px;
+  //   bottom: 0px;
+  //   left: -50vw;
+  //   right: -250vw;
+  //   // background: linear-gradient(90deg, rgb(255, 0, 76), transparent),
+  //   //   url("/assets/textures/noise.svg");
+  //   // // filter: contrast(1.7) brightness(10);
+  //   // filter: contrast(1.7) brightness(10);
+  //   background-color: $accent;
+  //   z-index: -2;
+  // }
+}
+
+.bg {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+
+  &-wrapper {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    background-color: $accent;
+    // background: linear-gradient(1deg, rgb(0, 0, 0), rgb(255, 255, 255));
+  }
+
+  // &-1 {
+  //   left: 0vw;
+  //   // right: -100vw;
+  //   right: 0vw;
+  //   background: linear-gradient(90deg, rgb(255, 0, 21), #0000),
+  //     url("/assets/textures/noise.svg");
+  //   filter: contrast(1.2) brightness(5);
+  //   mix-blend-mode: overlay;
+  //   opacity: 0;
+  // }
+
+  // &-2 {
+  //   left: 0vw;
+  //   // right: -100vw;
+  //   right: 0vw;
+  //   background: url("/assets/textures/noise.svg");
+  //   filter: saturate(0);
+  //   mix-blend-mode: multiply;
+  //   opacity: 0;
+  // }
+
+  // &-3 {
+  //   left: 0vw;
+  //   // right: -100vw;
+  //   right: 0vw;
+  //   background: url("/assets/textures/noise.svg");
+  //   filter: saturate(0);
+  //   mix-blend-mode: screen;
+  //   opacity: 0.2;
+  // }
 }
 
 .logo {
   font-size: 24px;
   padding: 5px 12px;
   color: #fff;
+}
+
+button {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  button {
+    display: block;
+  }
 }

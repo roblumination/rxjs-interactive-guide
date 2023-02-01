@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IntervalComponent } from './creation/interval/interval.component';
-import { FromComponent } from './creation/from/from.component';
-import { MarblesModule } from '../components/marbles/marbles.module';
-import { InDevelopementComponent } from './in-developement/in-developement.component';
-import { FromEventComponent } from './creation/from-event/from-event.component';
 
-const operators = [
-  InDevelopementComponent,
-  IntervalComponent,
-  FromComponent,
-  FromEventComponent,
-];
+import { OperatorsCreationModule } from './creation/operators-creation.module';
+
+import { InDevelopementComponent } from './in-developement/in-developement.component';
+
+const modules = [OperatorsCreationModule];
 
 @NgModule({
-  declarations: [...operators],
-  imports: [CommonModule, MarblesModule],
-  exports: [...operators],
+  declarations: [InDevelopementComponent],
+  imports: [CommonModule, ...modules],
+  exports: [...modules, InDevelopementComponent],
 })
 export class OperatorPagesModule {}

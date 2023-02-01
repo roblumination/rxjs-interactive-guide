@@ -16,6 +16,7 @@ export const operatorsNames: OperatorList = {
     'from',
     'fromEvent',
     'of',
+    'iif',
     'range',
     'timer',
     'defer',

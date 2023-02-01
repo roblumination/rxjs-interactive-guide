@@ -9,7 +9,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 12px;
 }
 
 input {
@@ -17,21 +17,24 @@ input {
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid $grayscale-700;
-  // width: 100%;
-  // max-width: 300px;
+  background-color: #fff6;
   width: 100%;
   max-width: 400px;
-  // width: clamp(100px, 100%, 300px);
-  // background-color: #fff3;
 
   &:focus {
+    background-color: #fff;
     outline: none;
+  }
+
+  &::placeholder {
+    color: #0006;
   }
 }
 
 button {
-  cursor: pointer;
   all: unset;
+  display: none;
+  cursor: pointer;
   color: #fff;
   position: absolute;
   left: 5px;
@@ -42,4 +45,13 @@ button {
   text-align: center;
   border: 1px solid #fff3;
   top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  :host {
+    padding: 0 50px;
+  }
+  button {
+    display: block;
+  }
 }

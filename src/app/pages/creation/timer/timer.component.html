@@ -1,0 +1,36 @@
+<h1>Timer</h1>
+
+<section>
+  <h2>Number as argument</h2>
+
+  <p></p>
+
+  <app-marble-block
+    [inputs]="sources[0].inputs"
+    [outputs]="sources[0].outputs"
+    [transport]="true"
+  >
+    <div class="operator-label"><span class="accent">timer</span>(1000)</div>
+  </app-marble-block>
+</section>
+
+<section>
+  <h2>Date as argument</h2>
+
+  <p>
+    new Date() =
+    <span class="green"> '... {{ currentDate | date : "hh:mm:ss" }} ...'</span>
+    <br />
+    const date = new Date(<span class="green"
+      >'... {{ endDate | date : "hh:mm:ss" }} ...'</span
+    >) <button (click)="updateEndDate()">new Date() + 5 sec</button> <br />
+  </p>
+
+  <app-marble-block
+    [inputs]="sources[1].inputs"
+    [outputs]="sources[1].outputs"
+    [transport]="true"
+  >
+    <div class="operator-label"><span class="accent">timer</span>(date)</div>
+  </app-marble-block>
+</section>
