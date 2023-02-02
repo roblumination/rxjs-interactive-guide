@@ -52,10 +52,11 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
     next: (data: MarbleData) => {
       this.createMarble(data.value, data.color);
     },
-    error: () => {
+    error: (error) => {
+      console.log(error);
       this.started = false;
       this.activated = false;
-      this.createUtilMarble('error');
+      this.createUtilMarble('error', error);
     },
     complete: () => {
       this.activated = false;
@@ -103,9 +104,9 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
     this.createLogItem('normal', value, color);
   }
 
-  private createUtilMarble(type: MarbleType): void {
+  private createUtilMarble(type: MarbleType, value: string = ''): void {
     this.createDot(type);
-    this.createLogItem(type);
+    this.createLogItem(type, value);
   }
 
   private createDot(

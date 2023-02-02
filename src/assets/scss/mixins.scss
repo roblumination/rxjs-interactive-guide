@@ -1,12 +1,2 @@
-@mixin abs-full($offset: 0px) {
-  top: $offset;
-  bottom: $offset;
-  left: $offset;
-  right: $offset;
-}
-
-@mixin pseudo-full() {
-  position: absolute;
-  content: "";
-  @include abs-full();
-}
+@import "./mixins/common.scss";
+@import "./mixins/flex.scss";

@@ -1,0 +1,44 @@
+@use "mixins" as *;
+@use "colors" as *;
+
+:host {
+  border-radius: 6px;
+  width: 210px;
+  padding: 4px;
+  padding-top: 14px;
+
+  color: $grayscale-800;
+  border: 1px solid $grayscale-400;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  box-shadow: 0 2px 4px #0003;
+  margin-bottom: 4px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    @include pseudo-full();
+    top: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    content: "Current Date";
+    font-size: 10px;
+  }
+
+  div {
+    flex-grow: 1;
+    font-size: 24px;
+    @include flex-center;
+
+    &:not(:first-child) {
+      border-left: 1px solid $grayscale-300;
+    }
+
+    &:last-child {
+      font-weight: 600;
+    }
+  }
+}

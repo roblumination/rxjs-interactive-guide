@@ -26,6 +26,7 @@ export class MarbleLogItemComponent {
     this.color = colorPalette[colorName];
     this.data = value;
     this.chDetRef.detectChanges();
+    console.log(colorName, value);
   }
 
   public setType(type: MarbleType): void {

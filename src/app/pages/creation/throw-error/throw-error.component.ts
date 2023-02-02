@@ -16,7 +16,7 @@ export class ThrowErrorComponent extends AbstractOperatorPage {
       inputs: [],
       outputs: [
         this.marbleCreateService.convertToColoredObservable(
-          throwError(() => new Error('A')),
+          throwError(() => 'error text'),
           'random'
         ),
       ],

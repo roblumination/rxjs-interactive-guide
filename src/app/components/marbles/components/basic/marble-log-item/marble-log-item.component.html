@@ -10,5 +10,7 @@
   <div *ngSwitchCase="'complete'" class="log-item log-item-complete">
     COMPLETE
   </div>
-  <div *ngSwitchCase="'error'" class="log-item log-item-error">ERROR</div>
+  <div *ngSwitchCase="'error'" class="log-item log-item-error">
+    <span>ERR:</span><span>{{ data }}</span>
+  </div>
 </ng-container>

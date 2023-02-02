@@ -1,0 +1,17 @@
+@mixin abs-full($offset: 0px) {
+  top: $offset;
+  bottom: $offset;
+  left: $offset;
+  right: $offset;
+}
+
+@mixin pseudo-full() {
+  position: absolute;
+  content: "";
+  @include abs-full();
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}

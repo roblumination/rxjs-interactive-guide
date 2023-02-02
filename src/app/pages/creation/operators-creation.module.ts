@@ -10,6 +10,7 @@ import { RangeComponent } from './range/range.component';
 import { TimerComponent } from './timer/timer.component';
 import { IifComponent } from './iif/iif.component';
 import { ThrowErrorComponent } from './throw-error/throw-error.component';
+import { ClockComponent } from 'src/app/shared/components/clock/clock.component';
 
 const operators = [
   IntervalComponent,
@@ -24,7 +25,7 @@ const operators = [
 
 @NgModule({
   declarations: [...operators],
-  imports: [CommonModule, MarblesModule],
+  imports: [CommonModule, MarblesModule, ClockComponent],
   exports: [...operators],
 })
 export class OperatorsCreationModule {}
