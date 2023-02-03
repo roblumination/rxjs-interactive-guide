@@ -1,0 +1,76 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { InDevelopementComponent } from './components/in-developement/in-developement.component';
+import { OperatorListComponent } from './operator-list.component';
+import { FromEventComponent } from './pages/creation/from-event/from-event.component';
+import { FromComponent } from './pages/creation/from/from.component';
+import { IifComponent } from './pages/creation/iif/iif.component';
+
+import { IntervalComponent } from './pages/creation/interval/interval.component';
+import { OfComponent } from './pages/creation/of/of.component';
+import { RangeComponent } from './pages/creation/range/range.component';
+import { ThrowErrorComponent } from './pages/creation/throw-error/throw-error.component';
+import { TimerComponent } from './pages/creation/timer/timer.component';
+
+const creation: Routes = [
+  {
+    path: 'interval',
+    component: IntervalComponent,
+  },
+  {
+    path: 'from',
+    component: FromComponent,
+  },
+  {
+    path: 'fromEvent',
+    component: FromEventComponent,
+  },
+  {
+    path: 'of',
+    component: OfComponent,
+  },
+  {
+    path: 'range',
+    component: RangeComponent,
+  },
+  {
+    path: 'timer',
+    component: TimerComponent,
+  },
+  {
+    path: 'iif',
+    component: IifComponent,
+  },
+  {
+    path: 'throwError',
+    component: ThrowErrorComponent,
+  },
+];
+
+const routes: Routes = [
+  {
+    path: '',
+    component: OperatorListComponent,
+    children: [
+      {
+        path: 'create',
+        pathMatch: 'full',
+        loadChildren: () =>
+          import('./pages/creation/operator-create.module').then(
+            (m) => m.OperatorCreateModule
+          ),
+      },
+    ],
+  },
+  // ...creation,
+  // {
+  //   path: '**',
+  //   component: InDevelopementComponent,
+  // },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class OperatorListRoutingModule {}

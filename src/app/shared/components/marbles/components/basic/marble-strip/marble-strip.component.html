@@ -1,0 +1,11 @@
+<div class="dot__wrapper" *ngIf="createDots">
+  <ng-template #dotsContainer></ng-template>
+</div>
+<div class="log-list" [class.log-list_long]="!createDots">
+  <div class="log-list__content">
+    <button class="log-list__button" (click)="clearLog()">CLEAR</button>
+    <ng-template #logItemsContainer></ng-template>
+  </div>
+</div>
+
+<div class="completed-label" *ngIf="completed">COMPLETED</div>
