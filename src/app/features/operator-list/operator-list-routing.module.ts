@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InDevelopementComponent } from './components/in-developement/in-developement.component';
+
 import { OperatorListComponent } from './operator-list.component';
+import { InDevelopementComponent } from './components/in-developement/in-developement.component';
 import { FromEventComponent } from './pages/creation/from-event/from-event.component';
 import { FromComponent } from './pages/creation/from/from.component';
 import { IifComponent } from './pages/creation/iif/iif.component';
-
 import { IntervalComponent } from './pages/creation/interval/interval.component';
 import { OfComponent } from './pages/creation/of/of.component';
 import { RangeComponent } from './pages/creation/range/range.component';
@@ -50,23 +50,16 @@ const creation: Routes = [
 const routes: Routes = [
   {
     path: '',
+    // pathMatch: 'full',
     component: OperatorListComponent,
     children: [
+      ...creation,
       {
-        path: 'create',
-        pathMatch: 'full',
-        loadChildren: () =>
-          import('./pages/creation/operator-create.module').then(
-            (m) => m.OperatorCreateModule
-          ),
+        path: '**',
+        component: InDevelopementComponent,
       },
     ],
   },
-  // ...creation,
-  // {
-  //   path: '**',
-  //   component: InDevelopementComponent,
-  // },
 ];
 
 @NgModule({

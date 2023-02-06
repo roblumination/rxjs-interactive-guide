@@ -8,7 +8,12 @@ import { RandomTickService } from 'src/app/core/services/randomTick.service';
   template: '',
 })
 export class AbstractOperatorPage implements OperatorPage, OnInit, OnDestroy {
-  sources: OperatorSource[] = [];
+  sources: OperatorSource[] = [
+    {
+      inputs: [],
+      outputs: [],
+    },
+  ];
 
   constructor(
     protected marbleCreateService: MarbleConstructionService,

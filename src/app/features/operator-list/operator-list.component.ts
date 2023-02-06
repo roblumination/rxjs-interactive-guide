@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-operator-list',
   templateUrl: './operator-list.component.html',
   styleUrls: ['./operator-list.component.scss'],
 })

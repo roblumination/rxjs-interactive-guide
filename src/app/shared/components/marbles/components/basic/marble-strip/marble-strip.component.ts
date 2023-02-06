@@ -23,7 +23,7 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   @Input() obs!: Observable<MarbleData>;
   @Input() startObs: Observable<void> | null = null;
   @Input() stopObs: Observable<void> | null = null;
-  @Input() createDots: boolean = false;
+  @Input() createDots: boolean = true;
 
   @ViewChild('dotsContainer', { read: ViewContainerRef })
   dotsContainer!: ViewContainerRef;
@@ -63,7 +63,7 @@ export class MarbleStripComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.dotsContainer.clear();
+    if (this.dotsContainer) this.dotsContainer.clear();
     this.destroyed$.next();
   }
 

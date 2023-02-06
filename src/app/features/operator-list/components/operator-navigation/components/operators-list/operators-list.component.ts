@@ -32,8 +32,8 @@ export class OperatorsListComponent implements OnInit {
       });
   }
 
-  public navigate(operatorName: string, groupName: string): void {
-    const finalRoute = ['/list', groupName, operatorName].join('/');
+  public navigate(operatorName: string): void {
+    const finalRoute = ['/list', operatorName].join('/');
     this.router.navigate([finalRoute]);
     this.close();
   }
