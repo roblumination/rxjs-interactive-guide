@@ -12,6 +12,7 @@ export class AbstractOperatorPage implements OperatorPage, OnInit, OnDestroy {
     {
       inputs: [],
       outputs: [],
+      mode: 'default',
     },
   ];
 

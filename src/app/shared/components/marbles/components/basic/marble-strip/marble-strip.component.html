@@ -1,7 +1,7 @@
-<div class="dot__wrapper" *ngIf="createDots">
+<div class="dot__wrapper" *ngIf="renderDots">
   <ng-template #dotsContainer></ng-template>
 </div>
-<div class="log-list" [class.log-list_long]="!createDots">
+<div class="log-list" [class.log-list_long]="!renderDots">
   <div class="log-list__content">
     <button class="log-list__button" (click)="clearLog()">CLEAR</button>
     <ng-template #logItemsContainer></ng-template>

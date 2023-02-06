@@ -10,16 +10,13 @@ import {
 } from '@angular/core';
 import { MarbleColor, MarbleData, MarbleType } from '@core/models/types/marble';
 import { Observable, Observer, Subject, Subscription, takeUntil } from 'rxjs';
-import { MarbleDotComponent } from '../marble-dot/marble-dot.component';
-import { MarbleLogItemComponent } from '../marble-log-item/marble-log-item.component';
+import { MarbleDotComponent } from '../../basic/marble-dot/marble-dot.component';
+import { MarbleLogItemComponent } from '../../basic/marble-log-item/marble-log-item.component';
 
 @Component({
-  selector: 'app-marble-strip',
-  templateUrl: './marble-strip.component.html',
-  styleUrls: ['./marble-strip.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '',
 })
-export class MarbleStripComponent implements OnInit, OnDestroy {
+export class MarbleRenderer implements OnInit, OnDestroy {
   @Input() obs!: Observable<MarbleData>;
   @Input() startObs: Observable<void> | null = null;
   @Input() stopObs: Observable<void> | null = null;
