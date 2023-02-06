@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarbleRenderer } from './marble-renderer.component';
+import { DotRendererComponent } from './dot-renderer.component';
 
-describe('MarbleRendererComponent', () => {
-  let component: MarbleRenderer;
-  let fixture: ComponentFixture<MarbleRenderer>;
+describe('MarbleDotRendererComponent', () => {
+  let component: DotRendererComponent;
+  let fixture: ComponentFixture<DotRendererComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MarbleRenderer],
+      declarations: [DotRendererComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MarbleRenderer);
+    fixture = TestBed.createComponent(DotRendererComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,12 +9,16 @@
   converted through this operator.
 </p>
 
-<app-marble-block
+<!-- <app-marble-block
   [inputs]="sources[0].inputs"
   [outputs]="sources[0].outputs"
   [transport]="true"
->
-  <div class="operator-label">
-    <span class="accent">from</span>([A, B, C, D, E, F])
-  </div>
-</app-marble-block>
+> -->
+<div class="operator-label">
+  <span class="accent">from</span>([A, B, C, D, E, F])
+</div>
+<!-- </app-marble-block> -->
+
+<app-classic-marble-block
+  [data$]="sources[0].outputs[0]"
+></app-classic-marble-block>
