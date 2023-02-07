@@ -15,8 +15,8 @@ import {
   MarbleType,
 } from '@core/models/types/marble';
 import { Observable, Observer, Subject, Subscription, takeUntil } from 'rxjs';
-import { BasicItemComponent } from '../marble-items/basic-item.component';
-import { DotComponent } from '../marble-items/dot/dot.component';
+import { BasicItemComponent } from './basic-item.component';
+import { DotComponent } from './dot-renderer/dot/dot.component';
 
 @Component({
   template: '',

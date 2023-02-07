@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { MarbleType } from '@core/models/types/marble';
-import { BasicItemComponent } from '../basic-item.component';
+import { BasicItemComponent } from '../../basic-item.component';
 
 @Component({
   selector: 'app-dot',

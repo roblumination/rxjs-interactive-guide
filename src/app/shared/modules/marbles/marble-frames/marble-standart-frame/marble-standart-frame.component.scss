@@ -1,4 +1,10 @@
 :host {
   display: block;
-  background-color: #ff05;
+  // border: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: 0 3px 2px #0002, 0 0px 1px 1px #0003;
+
+  // background-color: #ff05;
 }

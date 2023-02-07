@@ -1,3 +1,10 @@
-<div class="log-wrapper">
+<div class="tooltip" *ngIf="tooltipText" [@fadeAnimation]>
+  <div class="noize"></div>
+  <span class="label">value:</span>
+  <span>
+    {{ tooltipText }}
+  </span>
+</div>
+<div class="log-wrapper selective-hover-container">
   <ng-template #itemContainer></ng-template>
 </div>

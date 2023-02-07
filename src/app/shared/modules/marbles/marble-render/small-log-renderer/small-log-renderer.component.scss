@@ -1,12 +1,53 @@
+@use "mixins" as *;
+@use "colors" as *;
+
 :host {
   display: block;
   height: 20px;
-  // display: flex;
-  // flex-direction: row;
+  height: 50px;
+  position: relative;
 }
 
 .log-wrapper {
   display: flex;
   gap: 3px;
   padding: 3px;
+  overflow-x: hidden;
+}
+
+.tooltip {
+  @include flex-center();
+  position: absolute;
+  z-index: 1000;
+  border-radius: 3px;
+  height: 30px;
+  top: -29px;
+  left: 3px;
+  right: 3px;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+
+  border: 1px solid $grayscale-300;
+  box-shadow: 0 3px 3px #0003;
+  color: $grayscale-800;
+
+  .label {
+    font-size: 14px;
+    padding-right: 2px;
+  }
+
+  &::after {
+    @include pseudo-full();
+    z-index: -2;
+    background-color: #eee;
+    opacity: 0.2;
+  }
+
+  &::before {
+    @include pseudo-full();
+    z-index: -1;
+    background: url("/assets/textures/noise.svg");
+    opacity: 0.2;
+    mix-blend-mode: screen;
+  }
 }

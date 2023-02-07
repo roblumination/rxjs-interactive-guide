@@ -1,7 +1,7 @@
 import { Component, Type } from '@angular/core';
-import { BasicItemComponent } from '@shared/modules/marbles/marble-items/basic-item.component';
-import { DotComponent } from '@shared/modules/marbles/marble-items/dot/dot.component';
+import { BasicItemComponent } from '../basic-item.component';
 import { BasicRenderer } from '../basic-renderer';
+import { DotComponent } from './dot/dot.component';
 
 @Component({
   selector: 'app-marble-dot-renderer',

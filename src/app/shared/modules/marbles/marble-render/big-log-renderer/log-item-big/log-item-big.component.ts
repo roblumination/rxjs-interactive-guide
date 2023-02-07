@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BasicItemComponent } from '../basic-item.component';
+import { BasicItemComponent } from '../../basic-item.component';
 
 @Component({
   selector: 'app-marble-log-item',
