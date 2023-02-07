@@ -12,10 +12,12 @@
   function itself, which will be called whenever said event happens.
 </p>
 
-<app-marble-block [inputs]="sources[0].inputs" [outputs]="sources[0].outputs">
+<!-- <app-marble-block [inputs]="sources[0].inputs" [outputs]="sources[0].outputs">
   <div class="operator-label">
     <button id="from-event-button"><span class="blue">button</span></button>
     <span class="accent">fromEvent</span>(<span class="blue">button</span
     >,'click')
   </div>
-</app-marble-block>
+</app-marble-block> -->
+
+<app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>

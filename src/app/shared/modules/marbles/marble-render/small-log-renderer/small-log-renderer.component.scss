@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  height: 20px;
+  // display: flex;
+  // flex-direction: row;
+}
+
+.log-wrapper {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+}

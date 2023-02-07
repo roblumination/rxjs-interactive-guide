@@ -15,8 +15,8 @@ import {
   MarbleType,
 } from '@core/models/types/marble';
 import { Observable, Observer, Subject, Subscription, takeUntil } from 'rxjs';
-import { BasicItemComponent } from '../items/basic-item.component';
-import { DotComponent } from '../items/dot/dot.component';
+import { BasicItemComponent } from '../marble-items/basic-item.component';
+import { DotComponent } from '../marble-items/dot/dot.component';
 
 @Component({
   template: '',
@@ -66,8 +66,8 @@ export class BasicRenderer implements OnInit, OnDestroy {
     color: MarbleColor = 'red'
   ): void {
     console.log('ADD ITEM!');
-    // const item = this.viewContainerRef.createComponent(this.itemClass);
-    const item = this.viewContainerRef.createComponent(DotComponent);
+    const item = this.viewContainerRef.createComponent(this.itemClass);
+    // const item = this.viewContainerRef.createComponent(DotComponent);
     item.instance.setType(type);
     item.instance.fill(color, value);
     if (this.itemLifeTime)
@@ -94,6 +94,8 @@ export class BasicRenderer implements OnInit, OnDestroy {
       this.transport.stop
         .pipe(takeUntil(this.destroyed$))
         .subscribe(() => this.stop());
-    } else this.start();
+    } else {
+      setTimeout(() => this.start());
+    }
   }
 }

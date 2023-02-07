@@ -1,0 +1,22 @@
+<div class="transport">
+  <button (click)="start()">START</button>
+  <button (click)="stop()">STOP</button>
+</div>
+
+<div class="source-block inputs">
+  <app-classic-marble-block
+    *ngFor="let source$ of data.inputs"
+    [transport]="transport"
+    [data$]="source$"
+  ></app-classic-marble-block>
+</div>
+
+<ng-content></ng-content>
+
+<div class="source-block outputs">
+  <app-classic-marble-block
+    *ngFor="let source$ of data.outputs"
+    [transport]="transport"
+    [data$]="source$"
+  ></app-classic-marble-block>
+</div>

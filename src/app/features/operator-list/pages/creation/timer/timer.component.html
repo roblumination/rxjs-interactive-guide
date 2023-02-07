@@ -5,13 +5,15 @@
 
   <p></p>
 
-  <app-marble-block
+  <!-- <app-marble-block
     [inputs]="sources[0].inputs"
     [outputs]="sources[0].outputs"
     [transport]="true"
   >
     <div class="operator-label"><span class="accent">timer</span>(1000)</div>
-  </app-marble-block>
+  </app-marble-block> -->
+
+  <app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>
 </section>
 
 <section>
@@ -27,11 +29,12 @@
     >) <button (click)="updateEndDate()">new Date() + 5 sec</button> <br />
   </p>
 
-  <app-marble-block
+  <!-- <app-marble-block
     [inputs]="sources[1].inputs"
     [outputs]="sources[1].outputs"
     [transport]="true"
   >
     <div class="operator-label"><span class="accent">timer</span>(date)</div>
-  </app-marble-block>
+  </app-marble-block> -->
+  <app-marble-standart-frame [data]="sources[1]"></app-marble-standart-frame>
 </section>

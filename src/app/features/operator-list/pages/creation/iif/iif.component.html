@@ -5,7 +5,7 @@
   <button (click)="toggle()">toggle</button>
 </p>
 
-<app-marble-block
+<!-- <app-marble-block
   [inputs]="sources[0].inputs"
   [outputs]="sources[0].outputs"
   [transport]="true"
@@ -13,4 +13,6 @@
   <div class="operator-label">
     <span class="accent">iif</span>(() => myBoolean, of(A), of(B) )
   </div>
-</app-marble-block>
+</app-marble-block> -->
+
+<app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>
