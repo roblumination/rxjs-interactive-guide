@@ -1,1 +1,38 @@
-<p>marble-big-log-frame works!</p>
+<div class="transport" *ngIf="showTransport">
+  <app-transport-buttons
+    (requestStart)="start()"
+    (requestStop)="stop()"
+    [stopButton]="stopButton"
+  ></app-transport-buttons>
+</div>
+
+<!-- <main>
+  <div class="source-block__wrapper inputs" *ngIf="data.inputs.length">
+    <div class="source-block" *ngFor="let source$ of data.inputs">
+      <app-classic-marble-block
+        [transport]="transport"
+        [data$]="source$"
+      ></app-classic-marble-block>
+    </div>
+  </div>
+
+  <div class="source-block-description">
+    <div class="noise-txd"></div>
+    <div class="source-block-description__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <div class="source-block__wrapper outputs" *ngIf="data.outputs.length">
+    <div class="source-block" *ngFor="let source$ of data.outputs">
+      <app-classic-marble-block
+        [transport]="transport"
+        [data$]="source$"
+      ></app-classic-marble-block>
+    </div>
+  </div>
+</main> -->
+<app-log-marble-block
+  [data$]="data.outputs[0]"
+  [transport]="transport"
+></app-log-marble-block>

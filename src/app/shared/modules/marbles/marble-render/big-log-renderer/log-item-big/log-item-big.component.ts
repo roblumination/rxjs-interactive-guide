@@ -7,4 +7,6 @@ import { BasicItemComponent } from '../../basic-item.component';
   styleUrls: ['./log-item-big.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LogItemBigComponent extends BasicItemComponent {}
+export class LogItemBigComponent extends BasicItemComponent {
+  public creationDate = new Date();
+}

@@ -1,12 +1,19 @@
-<app-marble-dot-renderer
-  [data$]="data$"
-  [transport]="transport"
-></app-marble-dot-renderer>
-<app-small-log-renderer
-  [data$]="data$"
-  [transport]="transport"
-></app-small-log-renderer>
-<div class="status__wrapper">
+<div *ngIf="!logOnly">
+  <app-marble-dot-renderer
+    [data$]="data$"
+    [transport]="transport"
+  ></app-marble-dot-renderer>
+  <app-small-log-renderer
+    [data$]="data$"
+    [transport]="transport"
+  ></app-small-log-renderer>
+</div>
+<div *ngIf="logOnly">
+  <app-big-log-renderer [data$]="data$" [transport]="transport">
+  </app-big-log-renderer>
+</div>
+
+<div class="status__wrapper" *ngIf="!logOnly">
   <!-- <div *ngIf="status == 'pending'">Pending</div> -->
   <div
     class="status status-active"

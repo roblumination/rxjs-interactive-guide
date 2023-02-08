@@ -1,13 +1,6 @@
 @use "mixins" as *;
 @use "colors" as *;
 
-:host {
-  position: relative;
-  display: block;
-  // border: 1px solid #ccc;
-  // overflow: hidden;
-}
-
 .status {
   width: 10px;
   height: 10px;

@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="type">
+<!-- <ng-container [ngSwitch]="type">
   <div
     *ngSwitchCase="'normal'"
     class="log-item"
@@ -13,4 +13,19 @@
   <div *ngSwitchCase="'error'" class="log-item log-item-error">
     <span>ERR:</span><span>{{ data }}</span>
   </div>
-</ng-container>
+</ng-container> -->
+<div
+  class="log-item"
+  [class.log-item-complete]="type == 'complete'"
+  [class.log-item-error]="type == 'error'"
+  [style.backgroundColor]="color"
+>
+  <div class="log-item__date">
+    <span class="big-num">{{ creationDate | date : "mm:ss" }}</span>
+    <span class="small-num">:{{ creationDate | date : "SSS" }}</span>
+  </div>
+  <div class="log-item__value">
+    <span> {{ data }}</span>
+    <span *ngIf="type == 'complete'">COMPLETED</span>
+  </div>
+</div>

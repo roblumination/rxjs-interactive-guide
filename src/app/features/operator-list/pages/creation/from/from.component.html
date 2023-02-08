@@ -20,7 +20,11 @@
 <!-- <app-classic-marble-block
   [data$]="sources[0].outputs[0]"
 ></app-classic-marble-block> -->
-<app-marble-standart-frame [data]="sources[0]">
+<app-marble-standart-frame
+  [data]="sources[0]"
+  [logOnly]="true"
+  [stopButton]="false"
+>
   <div class="operator-label">
     <span class="accent">from</span>([A, B, C, D, E, F])
   </div>

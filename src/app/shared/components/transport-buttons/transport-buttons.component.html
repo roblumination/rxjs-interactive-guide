@@ -1,1 +1,25 @@
-buttons!
+<div class="buttons">
+  <div
+    class="button button-play"
+    [class.button-active]="isStarted"
+    (click)="start()"
+    title="subscribe"
+  >
+    <div class="button-part button-front">
+      <img src="/assets/images/play.svg" draggable="false" />
+    </div>
+    <div class="button-part button-back"></div>
+  </div>
+  <div
+    *ngIf="stopButton"
+    class="button button-stop"
+    [class.button-active]="!isStarted"
+    (click)="stop()"
+    title="unsubscribe"
+  >
+    <div class="button-part button-front">
+      <img src="/assets/images/stop.svg" draggable="false" />
+    </div>
+    <div class="button-part button-back"></div>
+  </div>
+</div>

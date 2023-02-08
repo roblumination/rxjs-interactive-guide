@@ -1,0 +1,24 @@
+<!-- <div class="status__wrapper">
+  <div
+    class="status status-active"
+    *ngIf="status == 'active'"
+    [@popUpAnimation]
+  >
+    Active
+  </div>
+  <div
+    class="status status-completed"
+    *ngIf="status == 'completed'"
+    [@popUpAnimation]
+  >
+    Completed
+  </div>
+  <div class="status status-error" *ngIf="status == 'error'" [@popUpAnimation]>
+    Error
+  </div>
+</div> -->
+
+<app-big-log-renderer
+  [data$]="data$"
+  [transport]="transport"
+></app-big-log-renderer>

@@ -65,7 +65,6 @@ export class BasicRenderer implements OnInit, OnDestroy {
     value: string = '',
     color: MarbleColor = 'red'
   ): void {
-    console.log('ADD ITEM!');
     const item = this.viewContainerRef.createComponent(this.itemClass);
     // const item = this.viewContainerRef.createComponent(DotComponent);
     item.instance.setType(type);

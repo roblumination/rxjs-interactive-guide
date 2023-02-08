@@ -13,20 +13,20 @@ export class FromComponent extends AbstractOperatorPage {
   override sources: OperatorSource[] = [
     {
       inputs: [
-        this.marbleCreateService.convertToColoredObservable(
-          from(['A', 'B', 'C', 'D', 'E', 'F']),
-          'random'
-        ),
-        this.marbleCreateService.convertToColoredObservable(
-          from(['A', 'B', 'C', 'D', 'E', 'F']),
-          'random'
-        ),
+        // this.marbleCreateService.convertToColoredObservable(
+        //   from(['A', 'B', 'C', 'D', 'E', 'F']),
+        //   'random'
+        // ),
+        // this.marbleCreateService.convertToColoredObservable(
+        //   from(['A', 'B', 'C', 'D', 'E', 'F']),
+        //   'random'
+        // ),
       ],
       outputs: [
-        this.marbleCreateService.convertToColoredObservable(
-          from(['A', 'B', 'C', 'D', 'E', 'F']),
-          'random'
-        ),
+        // this.marbleCreateService.convertToColoredObservable(
+        //   from(['A', 'B', 'C', 'D', 'E', 'F']),
+        //   'random'
+        // ),
         this.marbleCreateService.convertToColoredObservable(
           from(['A', 'B', 'C', 'D', 'E', 'F']),
           'random'

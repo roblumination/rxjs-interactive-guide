@@ -1,6 +1,9 @@
-<div class="transport">
-  <button (click)="start()">START</button>
-  <button (click)="stop()">STOP</button>
+<div class="transport" *ngIf="showTransport">
+  <app-transport-buttons
+    (requestStart)="start()"
+    (requestStop)="stop()"
+    [stopButton]="stopButton"
+  ></app-transport-buttons>
 </div>
 
 <main>
@@ -9,6 +12,7 @@
       <app-classic-marble-block
         [transport]="transport"
         [data$]="source$"
+        [logOnly]="logOnly"
       ></app-classic-marble-block>
     </div>
   </div>
@@ -25,6 +29,7 @@
       <app-classic-marble-block
         [transport]="transport"
         [data$]="source$"
+        [logOnly]="logOnly"
       ></app-classic-marble-block>
     </div>
   </div>

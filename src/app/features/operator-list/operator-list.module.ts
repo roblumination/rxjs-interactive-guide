@@ -15,6 +15,7 @@ import { RangeComponent } from './pages/creation/range/range.component';
 import { ThrowErrorComponent } from './pages/creation/throw-error/throw-error.component';
 import { TimerComponent } from './pages/creation/timer/timer.component';
 import { ClockComponent } from '@shared/components/clock/clock.component';
+import { TransportButtonsComponent } from '@shared/components/transport-buttons/transport-buttons.component';
 
 const creation = [
   FromEventComponent,
@@ -35,6 +36,7 @@ const creation = [
     OperatorNavigationModule,
     MarblesModule,
     ClockComponent,
+    TransportButtonsComponent,
   ],
 })
 export class OperatorListModule {}
