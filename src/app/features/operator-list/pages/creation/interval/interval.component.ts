@@ -15,7 +15,7 @@ export class IntervalComponent extends AbstractOperatorPage {
       inputs: [],
       outputs: [
         this.marbleCreateService.convertToColoredObservable(
-          interval(1000).pipe(take(3)),
+          interval(1000).pipe(take(100)),
           'random'
         ),
       ],

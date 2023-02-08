@@ -20,4 +20,10 @@
   </div>
 </app-marble-block> -->
 
-<app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>
+<app-marble-standart-frame [data]="sources[0]" [showTransport]="false">
+  <div class="operator-label">
+    <button id="from-event-button"><span class="blue">button</span></button>
+    <span class="accent">fromEvent</span>(<span class="blue">button</span
+    >,'click')
+  </div>
+</app-marble-standart-frame>

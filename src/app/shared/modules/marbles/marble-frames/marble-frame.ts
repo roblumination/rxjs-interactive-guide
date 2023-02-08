@@ -11,8 +11,15 @@ export abstract class MarbleAbstractFrame {
     inputs: [],
     outputs: [],
   };
-  @Input() public showTransport: boolean = true;
   @Input() public stopButton: boolean = true;
+  @Input() public set showTransport(value: boolean) {
+    if (!value) setTimeout(() => this.start());
+    this._showTransport = value;
+  }
+  get showTransport(): boolean {
+    return this._showTransport;
+  }
+
   public get transport(): MarbleTransport {
     return {
       start: this.start$.asObservable(),
@@ -22,6 +29,7 @@ export abstract class MarbleAbstractFrame {
 
   private start$ = new Subject<void>();
   private stop$ = new Subject<void>();
+  private _showTransport: boolean = true;
 
   public start(): void {
     this.start$.next();

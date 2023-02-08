@@ -12,4 +12,8 @@
   </div>
 </app-marble-block> -->
 
-<app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>
+<app-marble-standart-frame [data]="sources[0]" [stopButton]="false">
+  <div class="operator-label">
+    <span class="accent">throwError</span>(() => 'error text')
+  </div>
+</app-marble-standart-frame>

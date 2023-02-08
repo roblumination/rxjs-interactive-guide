@@ -21,7 +21,12 @@ export class FromEventComponent extends AbstractOperatorPage {
     if (button) {
       this.sources[0].outputs.push(
         this.marbleCreateService.convertToColoredObservable(
-          fromEvent(button, 'click').pipe(map((event) => 'EV')),
+          fromEvent(button, 'click').pipe(
+            map((event) => {
+              console.log(event);
+              return 'EV';
+            })
+          ),
           'random'
         )
       );

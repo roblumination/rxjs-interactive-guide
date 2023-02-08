@@ -3,17 +3,9 @@
 <section>
   <h2>Number as argument</h2>
 
-  <p></p>
-
-  <!-- <app-marble-block
-    [inputs]="sources[0].inputs"
-    [outputs]="sources[0].outputs"
-    [transport]="true"
-  >
+  <app-marble-standart-frame [data]="sources[0]">
     <div class="operator-label"><span class="accent">timer</span>(1000)</div>
-  </app-marble-block> -->
-
-  <app-marble-standart-frame [data]="sources[0]"></app-marble-standart-frame>
+  </app-marble-standart-frame>
 </section>
 
 <section>
@@ -28,13 +20,7 @@
       >'... {{ endDate | date : "hh:mm:ss" }} ...'</span
     >) <button (click)="updateEndDate()">new Date() + 5 sec</button> <br />
   </p>
-
-  <!-- <app-marble-block
-    [inputs]="sources[1].inputs"
-    [outputs]="sources[1].outputs"
-    [transport]="true"
-  >
+  <app-marble-standart-frame [data]="sources[1]">
     <div class="operator-label"><span class="accent">timer</span>(date)</div>
-  </app-marble-block> -->
-  <app-marble-standart-frame [data]="sources[1]"></app-marble-standart-frame>
+  </app-marble-standart-frame>
 </section>
