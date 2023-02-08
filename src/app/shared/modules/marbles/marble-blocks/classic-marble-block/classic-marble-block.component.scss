@@ -1,6 +1,49 @@
+@use "mixins" as *;
+@use "colors" as *;
+
 :host {
   position: relative;
   display: block;
   // border: 1px solid #ccc;
   // overflow: hidden;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s;
+  user-select: none;
+  @include flex-center();
+  color: #fff0;
+  border: 2px solid #0003;
+
+  &__wrapper {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1000;
+    width: 150px;
+    height: 50px;
+
+    &:hover > * {
+      height: 20px;
+      width: 105px;
+      color: #fff;
+      border: 0px solid #0003;
+    }
+  }
+
+  &-active {
+    background-color: $green;
+  }
+
+  &-completed {
+    background-color: $blue;
+  }
+
+  &-error {
+    background-color: $red;
+  }
 }

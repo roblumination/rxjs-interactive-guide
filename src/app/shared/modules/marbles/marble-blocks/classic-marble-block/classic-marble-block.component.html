@@ -6,3 +6,23 @@
   [data$]="data$"
   [transport]="transport"
 ></app-small-log-renderer>
+<div class="status__wrapper">
+  <!-- <div *ngIf="status == 'pending'">Pending</div> -->
+  <div
+    class="status status-active"
+    *ngIf="status == 'active'"
+    [@popUpAnimation]
+  >
+    Active
+  </div>
+  <div
+    class="status status-completed"
+    *ngIf="status == 'completed'"
+    [@popUpAnimation]
+  >
+    Completed
+  </div>
+  <div class="status status-error" *ngIf="status == 'error'" [@popUpAnimation]>
+    Error
+  </div>
+</div>

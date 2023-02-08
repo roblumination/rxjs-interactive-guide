@@ -1,15 +1,9 @@
 @use "colors" as *;
 @use "mixins" as *;
+@use "../marble-frame.scss" as *;
 
 :host {
-  display: block;
-  // border: 1px solid #ccc;
-  // background-color: #f8f8f8;
-  background: linear-gradient(#f5e7f0, #fdf8f2);
-  border-bottom: 3px solid #ccc;
-  border-radius: 4px;
-  padding: 4px;
-  box-shadow: 0 3px 2px #0002, 0 0px 1px 1px #0003;
+  @include marble-frame();
 }
 
 .transport {
@@ -63,19 +57,9 @@
 }
 
 main {
-  // box-shadow: inset 0 1px 3px #0002, inset 0 1px 1px #0004;
-  // background-color: #0002;
-  // border-top: 1px solid #ccc;
   border-radius: 5px;
   padding: 2px;
   @include flex-col(2px);
-
-  // background-color: #0004;
-  // opacity: 0.8;
-  // $c1: #7a6870;
-  // $c2: rgb(152, 146, 125);
-  // background: repeating-linear-gradient(45deg, $c1, $c1 3px, $c2 3px, $c2 8px);
-
   .source-block {
     padding: 3px;
     padding-bottom: 5px;
@@ -94,11 +78,11 @@ main {
       padding: 20px;
       position: relative;
       border: 2px solid rgba($accent, 0.4);
-      background: linear-gradient(30deg, #fff8fd, #fff7f2);
+      $c1: rgb(105, 70, 81);
+      $c2: rgb(255, 255, 255);
+      background-color: $c2;
 
-      // background-color: #fff;
       border-radius: 4px;
-      // box-shadow: 0 1px 3px #0002, 0 1px 1px #0004;
 
       &__content {
         position: relative;
@@ -115,5 +99,5 @@ main {
   background-color: #f00;
   background: url("/assets/textures/noise.svg");
   mix-blend-mode: multiply;
-  opacity: 0.4;
+  opacity: 0;
 }
