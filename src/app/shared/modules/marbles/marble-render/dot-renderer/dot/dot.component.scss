@@ -24,17 +24,28 @@ $cross-offset: 31.4% + 1%;
   width: calc($size - 2px);
   height: calc($size - 2px);
   border: 5px solid #333;
-  outline: 1px solid #000;
+  // outline: 1px solid #000;
   border-radius: 50%;
-  // box-shadow: 0 0px 2px 8px #f00;
+  position: relative;
+  box-shadow: 0 3px 2px #0003, 0 1px 1px #0006;
 
   animation: marble-scale ease-out 0.1s;
+
+  &::after {
+    @include pseudo-full();
+    background: linear-gradient(#fff, #000);
+    @include abs-full(-4px);
+    border-radius: 50%;
+    mix-blend-mode: overlay;
+    opacity: 0;
+  }
 
   &__content {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1px solid #000;
+    border: 1px solid #0006;
+    box-shadow: inset 0 1px 1px #0003;
 
     display: flex;
     align-items: center;
@@ -45,7 +56,9 @@ $cross-offset: 31.4% + 1%;
     font-size: 24px;
     letter-spacing: -0.3px;
 
-    background-color: #fff;
+    // background-color: #fff;
+    background: linear-gradient(#fff, #eee);
+
     color: $grayscale-900;
   }
 
