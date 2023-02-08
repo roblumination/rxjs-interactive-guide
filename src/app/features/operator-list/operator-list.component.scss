@@ -9,6 +9,8 @@
   padding: 20px;
   flex-grow: 1;
   max-width: calc(100% - 250px);
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .navigation {
