@@ -3,20 +3,29 @@
   <button (click)="stop()">STOP</button>
 </div>
 
-<div class="source-block inputs">
-  <app-classic-marble-block
-    *ngFor="let source$ of data.inputs"
-    [transport]="transport"
-    [data$]="source$"
-  ></app-classic-marble-block>
-</div>
+<main>
+  <div class="source-block__wrapper inputs" *ngIf="data.inputs.length">
+    <div class="source-block" *ngFor="let source$ of data.inputs">
+      <app-classic-marble-block
+        [transport]="transport"
+        [data$]="source$"
+      ></app-classic-marble-block>
+    </div>
+  </div>
 
-<ng-content></ng-content>
+  <div class="source-block-description">
+    <div class="noise-txd"></div>
+    <div class="source-block-description__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
 
-<div class="source-block outputs">
-  <app-classic-marble-block
-    *ngFor="let source$ of data.outputs"
-    [transport]="transport"
-    [data$]="source$"
-  ></app-classic-marble-block>
-</div>
+  <div class="source-block__wrapper outputs" *ngIf="data.outputs.length">
+    <div class="source-block" *ngFor="let source$ of data.outputs">
+      <app-classic-marble-block
+        [transport]="transport"
+        [data$]="source$"
+      ></app-classic-marble-block>
+    </div>
+  </div>
+</main>
