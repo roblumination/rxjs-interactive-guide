@@ -9,6 +9,8 @@
 
 .log-wrapper {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   gap: 3px;
   padding: 3px;
   overflow-x: hidden;
