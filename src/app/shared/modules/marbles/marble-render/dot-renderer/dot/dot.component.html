@@ -1,7 +1,12 @@
 <ng-container [ngSwitch]="type">
   <div *ngSwitchCase="'normal'" class="dot" [style.borderColor]="color">
     <div class="dot__content">
-      {{ data.toUpperCase() }}
+      <span class="dot__content__big" *ngIf="!isTextLong">{{
+        data.toUpperCase()
+      }}</span>
+      <span class="dot__content__small" *ngIf="isTextLong">{{
+        data.toUpperCase()
+      }}</span>
     </div>
   </div>
 

@@ -21,10 +21,15 @@ export abstract class BasicItemComponent {
     this.color = colorPalette[colorName];
     this.data = value;
     this.chDetRef.detectChanges();
+    this.onDataFilled(colorName, value);
   }
 
   public setType(type: MarbleType): void {
     this.type = type;
     this.chDetRef.detectChanges();
+    this.onTypeSet(type);
   }
+
+  protected onTypeSet(type: MarbleType): void {}
+  protected onDataFilled(colorName: MarbleColor, value: string): void {}
 }

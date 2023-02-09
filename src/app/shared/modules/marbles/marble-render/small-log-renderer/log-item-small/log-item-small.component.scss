@@ -52,12 +52,13 @@
   &-error {
     position: relative;
     background-color: rgb(214, 60, 26);
+    background: linear-gradient($red, #f80);
 
-    &::after {
-      background: linear-gradient(#0000, rgb(254, 140, 0));
+    // &::after {
+    //   background: linear-gradient(#0000, rgb(254, 140, 0));
 
-      mix-blend-mode: screen;
-    }
+    //   // mix-blend-mode: screen;
+    // }
 
     // &:hover {
     //   border-radius: 0 0 3px 3px;

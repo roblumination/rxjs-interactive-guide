@@ -18,6 +18,14 @@
   max-width: 250px;
 }
 
+.navigation-button {
+  position: relative;
+  margin-bottom: -30px;
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .page {
     max-width: 100%;
@@ -27,5 +35,8 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+  }
+  .navigation-button {
+    display: block;
   }
 }

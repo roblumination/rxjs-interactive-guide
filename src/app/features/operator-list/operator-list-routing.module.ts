@@ -11,6 +11,7 @@ import { OfComponent } from './pages/creation/of/of.component';
 import { RangeComponent } from './pages/creation/range/range.component';
 import { ThrowErrorComponent } from './pages/creation/throw-error/throw-error.component';
 import { TimerComponent } from './pages/creation/timer/timer.component';
+import { CombineLatestComponent } from './pages/join/combine-latest/combine-latest.component';
 
 const creation: Routes = [
   {
@@ -47,6 +48,10 @@ const creation: Routes = [
   },
 ];
 
+const join: Routes = [
+  { path: 'combineLatest', component: CombineLatestComponent },
+];
+
 const routes: Routes = [
   {
     path: '',
@@ -54,6 +59,7 @@ const routes: Routes = [
     component: OperatorListComponent,
     children: [
       ...creation,
+      ...join,
       {
         path: '**',
         component: InDevelopementComponent,

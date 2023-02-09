@@ -9,8 +9,8 @@ export class RandomTickService {
   public randomTick2$ = new Subject<void>();
   public randomTick3$ = new Subject<void>();
 
-  private readonly DELAY_MIN = 500;
-  private readonly DELAY_MAX = 2000;
+  private readonly DELAY_MIN = 1000;
+  private readonly DELAY_MAX = 3000;
   private isGenerationStoped: boolean = false;
 
   constructor() {

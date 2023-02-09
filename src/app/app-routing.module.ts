@@ -9,6 +9,10 @@ const routes: Routes = [
         (m) => m.OperatorListModule
       ),
   },
+  {
+    path: '**',
+    redirectTo: '/list',
+  },
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import { ThrowErrorComponent } from './pages/creation/throw-error/throw-error.co
 import { TimerComponent } from './pages/creation/timer/timer.component';
 import { ClockComponent } from '@shared/components/clock/clock.component';
 import { TransportButtonsComponent } from '@shared/components/transport-buttons/transport-buttons.component';
+import { CombineLatestComponent } from './pages/join/combine-latest/combine-latest.component';
 
 const creation = [
   FromEventComponent,
@@ -28,8 +29,15 @@ const creation = [
   TimerComponent,
 ];
 
+const join = [CombineLatestComponent];
+
 @NgModule({
-  declarations: [OperatorListComponent, InDevelopementComponent, ...creation],
+  declarations: [
+    OperatorListComponent,
+    InDevelopementComponent,
+    ...creation,
+    ...join,
+  ],
   imports: [
     CommonModule,
     OperatorListRoutingModule,

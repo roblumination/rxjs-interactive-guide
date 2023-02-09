@@ -10,7 +10,7 @@ $cross-offset: 31.4% + 1%;
   display: block;
   height: 48px;
   width: 100%;
-  animation: marble-movement linear 5s;
+  animation: marble-movement linear 10s;
   transform: translateX(calc(100% - $size));
   opacity: 0;
   top: calc((0px - $size) / 2);
@@ -60,6 +60,10 @@ $cross-offset: 31.4% + 1%;
     background: linear-gradient(#fff, #eee);
 
     color: $grayscale-900;
+
+    &__small {
+      font-size: 16px;
+    }
   }
 
   &-error {

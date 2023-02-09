@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
-import { MarbleType } from '@core/models/types/marble';
+import { MarbleColor, MarbleType } from '@core/models/types/marble';
 import { BasicItemComponent } from '../../basic-item.component';
 
 @Component({
@@ -10,10 +10,15 @@ import { BasicItemComponent } from '../../basic-item.component';
 })
 export class DotComponent extends BasicItemComponent {
   @HostBinding('style.zIndex') private index: number = 1000;
+  public isTextLong: boolean = true;
 
-  public override setType(type: MarbleType): void {
-    this.type = type;
+  protected override onTypeSet(type: MarbleType): void {
     this.index = type == 'complete' ? 500 : 1000;
+    this.chDetRef.detectChanges();
+  }
+
+  protected override onDataFilled(colorName: MarbleColor, value: string): void {
+    this.isTextLong = value.length > 2;
     this.chDetRef.detectChanges();
   }
 }

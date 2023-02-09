@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  z-index: 1000;
+  z-index: 2000;
   overflow: hidden;
 
   .navigation-bg {
@@ -45,11 +45,13 @@
     // background: url("/assets/textures/noise.svg"), #f00;
     backdrop-filter: blur(16px);
     transition: opacity 0.2s, transform 0.2s;
+    height: calc(100% - 50px);
+    overflow-x: auto;
 
     &.hidden {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-10%);
+      transform: translateX(-10%);
     }
 
     .navigation-bg {
