@@ -17,6 +17,12 @@ import { TimerComponent } from './pages/creation/timer/timer.component';
 import { ClockComponent } from '@shared/components/clock/clock.component';
 import { TransportButtonsComponent } from '@shared/components/transport-buttons/transport-buttons.component';
 import { CombineLatestComponent } from './pages/join/combine-latest/combine-latest.component';
+import { ConcatComponent } from './pages/join/concat/concat.component';
+import { ForkJoinComponent } from './pages/join/forl-join/fork-join.component';
+import { MergeComponent } from './pages/join/merge/merge.component';
+import { PartitionComponent } from './pages/join/partition/partition.component';
+import { RaceComponent } from './pages/join/race/race.component';
+import { ZipComponent } from './pages/join/zip/zip.component';
 
 const creation = [
   FromEventComponent,
@@ -29,7 +35,15 @@ const creation = [
   TimerComponent,
 ];
 
-const join = [CombineLatestComponent];
+const join = [
+  CombineLatestComponent,
+  ConcatComponent,
+  ForkJoinComponent,
+  MergeComponent,
+  PartitionComponent,
+  RaceComponent,
+  ZipComponent,
+];
 
 @NgModule({
   declarations: [

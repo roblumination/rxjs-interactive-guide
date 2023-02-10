@@ -14,7 +14,7 @@
         "
       >
         <a
-          (click)="navigate(operatorName)"
+          [routerLink]="'/list/' + operatorName"
           [routerLinkActive]="'active-route'"
           >{{ operatorName }}</a
         >
